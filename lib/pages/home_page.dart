@@ -13,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   int textcolor = 0;
   void _update() {
     setState(() {
-      red = random.nextInt(256); // 0 .. 255
+      red = random.nextInt(256); // 0 .. 255 _____
       green = random.nextInt(256); // 0 .. 255
       blue = random.nextInt(256); // 0 .. 255
       if (red < 100 && green < 100 && blue < 100) {
