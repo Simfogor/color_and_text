@@ -11,11 +11,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int alpha = 255, red = 255, green = 255, blue = 255;
   int textcolor = 0;
-  void _update() {
+
+  void _onetap() {
     setState(() {
       red = random.nextInt(256); // 0 .. 255
       green = random.nextInt(256); // 0 .. 255
       blue = random.nextInt(256); // 0 .. 255
+      if (red < 100 && green < 100 && blue < 100) {
+        // switch text black or while
+        textcolor = 255; // white text
+      } else {
+        textcolor = 0; // black text
+      }
+    });
+  }
+
+  void _doublelongtap() {
+    setState(() {
       if (red < 100 && green < 100 && blue < 100) {
         // switch text black or while
         textcolor = 255; // white text
@@ -34,7 +46,17 @@ class _HomePageState extends State<HomePage> {
         child: GestureDetector(
           onTap: () {
             print("Container was tapped"); // debug log
-            _update();
+            _onetap();
+          },
+          onDoubleTap: () {
+            print("Container was double tapped"); // debug log
+            red = green = blue = 0;
+            _doublelongtap();
+          },
+          onLongPress: () {
+            print("Container was long tapped"); // debug log
+            red = green = blue = 255;
+            _doublelongtap();
           },
           child: Container(
             decoration: BoxDecoration(),
