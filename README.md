@@ -1,4 +1,4 @@
-# color_and_text
+# Сolor and Text
 
 A new test Flutter project.
 
